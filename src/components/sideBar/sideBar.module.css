@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.navLink {
+    width: 60px;
+    height: 60px;
+}
+
+.copyright {
+    color: #fff;
+    font-size: 0.8rem;
+    text-align: center;
+    transform: rotate(-90deg);
+    margin-top: 25vh;
+    min-width: 200px;
+}

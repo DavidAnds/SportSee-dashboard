@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.titleSpan {
+    color: #ff0101;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    margin-top: 2vh;
+}

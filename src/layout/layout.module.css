@@ -1,0 +1,14 @@
+.container {
+    background-color: #020203;
+    width: 100vw;
+    height: 100vh;
+}
+
+.content {
+    display: flex;
+    height: 92vh;
+}
+.main {
+    background-color: #fff;
+    width: calc(100vw - 100px);
+}
