@@ -8,26 +8,17 @@ export class ApiHandler {
 
     async handler() {
         switch (this.name) {
-            case "infos":
-                return await this.getInfos()
-                break
             case "activity":
                 return await this.getActivity()
                 break
             case "average-sessions":
                 return await this.getAverageSessions()
                 break
-            case "today-score":
-                return await this.getTodayScore()
-                break
-            case "activity-type":
+            case "performance":
                 return await this.getActivityType()
                 break
-            case "activity-keys":
-                return await this.getActivityKeys()
-                break
             default:
-                return await this.fetch()
+                return await this.getMain()
         }
     }
 
@@ -43,38 +34,27 @@ export class ApiHandler {
                 return res.data
             })
             .catch((err) => {
-                console.log(err)
-                return err
+                throw new Error(err)
             })
     }
 
-    async getInfos() {
+    async getMain() {
         const data = await this.fetch()
-        return data.userInfos
+        return data
     }
 
     async getActivity() {
         const data = await this.fetch("activity")
-        return data.sessions
+        return data
     }
 
     async getAverageSessions() {
         const data = await this.fetch("average-sessions")
-        return data.sessions
-    }
-
-    async getTodayScore() {
-        const data = await this.fetch()
-        return data.todayScore
+        return data
     }
 
     async getActivityType() {
         const data = await this.fetch("performance")
-        return data.kind
-    }
-
-    async getActivityKeys() {
-        const data = await this.fetch()
-        return data.keyData
+        return data
     }
 }

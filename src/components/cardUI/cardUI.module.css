@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+}
+.textContainer {
+    margin-left: 24px;
+}
+
+.number {
+    font-size: 20px;
+    font-weight: 700;
+    color: #282d30;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #74798c;
+}

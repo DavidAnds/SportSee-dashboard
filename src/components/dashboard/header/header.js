@@ -1,18 +1,14 @@
 import styles from "./header.module.css"
 import useApi from "../../../hooks/useApi"
-import { useEffect } from "react"
 
-const Header = ({ userId }) => {
-    const infos = useApi(userId, "infos")
-    const score = useApi(userId, "today-score")
-
+const Header = ({ userInfos, todayScore }) => {
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>
                 Bonjour{" "}
-                <span className={styles.titleSpan}>{infos.firstName}</span>
+                <span className={styles.titleSpan}>{userInfos.firstName}</span>
             </h1>
-            {score > 0 ? (
+            {todayScore > 0 ? (
                 <p className={styles.subtitle}>
                     Félicitation ! Vous avez explosé vos objectifs hier 👏
                 </p>

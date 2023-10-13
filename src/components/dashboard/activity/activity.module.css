@@ -1,0 +1,15 @@
+.container {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #20253a;
+}

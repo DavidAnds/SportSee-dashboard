@@ -1,3 +1,30 @@
 .container {
-    padding: 8vh 5vw;
+    padding: 4vh 2vw;
+    height: 100%;
+    box-sizing: border-box;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.content {
+    margin-top: 3vh;
+    height: 85%;
+    width: 100%;
+    display: flex;
+}
+
+.contentLeft {
+    height: 100%;
+    width: 83%;
+}
+
+.activity {
+    width: 100%;
+    height: 50%;
+    padding: 10px 15px;
+}
+
+.contentRight {
+    height: 100%;
+    width: auto;
 }
