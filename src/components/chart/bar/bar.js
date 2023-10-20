@@ -16,7 +16,7 @@ function BarChart({ data, metadata }) {
         <ResponsiveContainer width="100%" height="80%">
             <BarRecharts data={data} barGap={8}>
                 <CartesianGrid strokeDasharray="5 5" vertical={false} />
-                <XAxis />
+                <XAxis tickLine={false} height={30} axisLine={false} />
                 <Tooltip
                     contentStyle={{
                         backgroundColor: "#E60000",

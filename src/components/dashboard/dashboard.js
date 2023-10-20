@@ -4,6 +4,7 @@ import KeyData from "./keyData/keyData"
 import useApi from "../../hooks/useApi"
 import getMockData from "../../data/getMockData"
 import Activity from "./activity/activity"
+import Sessions from "./sessions/sessions"
 
 const Dashboard = () => {
     const userId = 12
@@ -18,6 +19,11 @@ const Dashboard = () => {
                 <div className={styles.contentLeft}>
                     <div className={styles.activity}>
                         <Activity userId={userId} />
+                    </div>
+                    <div className={styles.sessionsInfo}>
+                        <Sessions userId={userId} />
+                        <Sessions userId={userId} />
+                        <Sessions userId={userId} />
                     </div>
                 </div>
                 <div className={styles.contentRight}>

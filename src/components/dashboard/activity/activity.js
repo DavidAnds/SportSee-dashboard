@@ -6,8 +6,6 @@ import { useEffect, useState } from "react"
 import styles from "./activity.module.css"
 
 function Activity({ userId }) {
-    const [data, setData] = useState(null)
-
     const { sessions } =
         useApi(userId, "activity") || getMockData(12, "activity")
 

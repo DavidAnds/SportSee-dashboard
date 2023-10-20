@@ -1,0 +1,14 @@
+.legendContainer {
+    width: 100%;
+    height: 100%;
+    padding-top: 20%;
+    padding-inline: 10%;
+}
+
+.legend {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 24px;
+    font-family: "Roboto", sans-serif;
+}
