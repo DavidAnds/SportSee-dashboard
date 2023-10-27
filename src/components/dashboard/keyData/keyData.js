@@ -5,30 +5,24 @@ import proteinIcon from "./protein-icon.png"
 import fatIcon from "./fat-icon.png"
 import carbsIcon from "./carbs-icon.png"
 import styles from "./keyData.module.css"
+import useApi from "../../../hooks/useApi"
+import getMockData from "../../../data/getMockData"
 
-function KeyData({ data }) {
-    const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = data
+function KeyData({ userId }) {
+  const { keyData } = useApi(userId) || getMockData(12)
 
-    return (
-        <div className={styles.container}>
-            <CardUI
-                number={calorieCount}
-                name={"Calories"}
-                icon={caloriesIcon}
-            />
-            <CardUI
-                number={proteinCount}
-                name={"Proteines"}
-                icon={proteinIcon}
-            />
-            <CardUI
-                number={carbohydrateCount}
-                name={"Glucides"}
-                icon={carbsIcon}
-            />
-            <CardUI number={lipidCount} name={"Lipides"} icon={fatIcon} />
-        </div>
-    )
+  return (
+    <div className={styles.container}>
+      {keyData && (
+        <>
+          <CardUI number={keyData.calorieCount} name={"Calories"} icon={caloriesIcon} />
+          <CardUI number={keyData.proteinCount} name={"Proteines"} icon={proteinIcon} />
+          <CardUI number={keyData.carbohydrateCount} name={"Glucides"} icon={carbsIcon} />
+          <CardUI number={keyData.lipidCount} name={"Lipides"} icon={fatIcon} />
+        </>
+      )}
+    </div>
+  )
 }
 
 export default KeyData
