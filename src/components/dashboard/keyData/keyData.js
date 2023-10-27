@@ -9,7 +9,7 @@ import useApi from "../../../hooks/useApi"
 import getMockData from "../../../data/getMockData"
 
 function KeyData({ userId }) {
-  const { keyData } = useApi(userId) || getMockData(12)
+  const { keyData } = useApi(userId) || getMockData(userId)
 
   return (
     <div className={styles.container}>

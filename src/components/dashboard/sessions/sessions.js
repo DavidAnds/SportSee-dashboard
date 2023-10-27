@@ -5,7 +5,7 @@ import LineChart from "../../chart/line/line"
 import styles from "./sessions.module.css"
 
 function Sessions({ userId }) {
-  const { sessions } = useApi(userId, "average-sessions") || getMockData(12, "average-sessions")
+  const { sessions } = useApi(userId, "average-sessions") || getMockData(userId, "average-sessions")
 
   const day = ["L", "M", "M", "J", "V", "S", "D"]
   const dataFormatted =

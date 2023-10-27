@@ -3,7 +3,7 @@ import useApi from "../../../hooks/useApi"
 import getMockData from "../../../data/getMockData"
 
 const Header = ({ userId }) => {
-  const { userInfos, todayScore } = useApi(userId) || getMockData(12)
+  const { userInfos, todayScore } = useApi(userId) || getMockData(userId)
   return (
     <div className={styles.container}>
       {userInfos && (

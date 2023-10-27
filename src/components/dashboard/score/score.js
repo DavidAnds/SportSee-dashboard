@@ -5,7 +5,7 @@ import styles from "./score.module.css"
 import RadialBarChart from "../../chart/radialBar/radialBar"
 
 function Score({ userId }) {
-  const { todayScore, score } = useApi(userId) || getMockData(18)
+  const { todayScore, score } = useApi(userId) || getMockData(userId)
 
   const dataFormatted =
     (todayScore && [

@@ -7,7 +7,7 @@ import Performance from "./performance/performance"
 import Score from "./score/score"
 
 const Dashboard = () => {
-  const userId = 12
+  const userId = 18
 
   return (
     <div className={styles.container}>
