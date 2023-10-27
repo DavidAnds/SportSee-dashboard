@@ -9,7 +9,6 @@ import {
     Bar,
     ResponsiveContainer,
 } from "recharts"
-import styles from "./bar.module.css"
 
 function BarChart({ data, metadata }) {
     return (
