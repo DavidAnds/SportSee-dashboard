@@ -5,7 +5,7 @@ import RadarChart from "../../chart/radar/radar"
 import styles from "./performance.module.css"
 
 function Performance({ userId }) {
-  const { data, kind } = useApi(userId, "performance") || getMockData(12, "performance")
+  const { data, kind } = useApi(userId, "performance") || getMockData(userId, "performance")
 
   const dataFormatted =
     data &&
