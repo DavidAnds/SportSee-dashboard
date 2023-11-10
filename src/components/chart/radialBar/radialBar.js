@@ -1,9 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useLayoutEffect, useRef, useState } from "react"
 import { RadialBarChart as ReRadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from "recharts"
 import styles from "./radialBar.module.css"
 
-function RadialBarChart({ data, title = "title", score }) {
+function RadialBarChart({ data, title = "title" }) {
   const ref = useRef(null)
   const [height, setHeight] = useState(0)
 
@@ -37,7 +37,7 @@ function RadialBarChart({ data, title = "title", score }) {
         style={{
           height: height,
         }}>
-        <p className={styles.score}>{score}%</p>
+        <p className={styles.score}>{data[0].value * 100}%</p>
         <p className={styles.text}>
           De votre <br /> objectif
         </p>

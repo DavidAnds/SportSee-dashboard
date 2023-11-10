@@ -15,17 +15,30 @@ const useData = (id, mock) => {
 
   useEffect(() => {
     if (mock) {
-      const standardizeData = new DataStandardiser(
-        getMockData(id),
-        getMockData(id, "activity"),
-        getMockData(id, "average-sessions"),
-        getMockData(id, "performance")
-      ).standardize()
+      if (id === 12 || id === 18) {
+        const standardizeData = new DataStandardiser(
+          getMockData(id),
+          getMockData(id, "activity"),
+          getMockData(id, "average-sessions"),
+          getMockData(id, "performance")
+        ).standardize()
 
-      setUser(standardizeData.user)
-      setActivity(standardizeData.activity)
-      setAverageSessions(standardizeData.averageSessions)
-      setPerformance(standardizeData.performance)
+        setUser(standardizeData.user)
+        setActivity(standardizeData.activity)
+        setAverageSessions(standardizeData.averageSessions)
+        setPerformance(standardizeData.performance)
+      } else {
+        navigate("/error", {
+          replace: true,
+          state: {
+            error: {
+              status: 404,
+              statusText: "Not Found",
+              message: "The requested ressource could not be found",
+            },
+          },
+        })
+      }
     } else {
       const api = new ApiHandler(id)
       const allFetch = [api.getMain(), api.getActivity(), api.getAverageSessions(), api.getPerfomance()]
@@ -40,8 +53,17 @@ const useData = (id, mock) => {
           setPerformance(standardizeData.performance)
         })
         .catch((err) => {
-          console.log("err", err)
-          navigate("/500", { replace: true })
+          console.log(err)
+          navigate("/error", {
+            replace: true,
+            state: {
+              error: {
+                status: 500,
+                statusText: "Internal Server Error",
+                message: "An error occurred while fetching data from the API",
+              },
+            },
+          })
         })
     }
   }, [id])

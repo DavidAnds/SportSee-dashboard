@@ -16,22 +16,28 @@ const Dashboard = () => {
 
   return (
     <div className={styles.container}>
-      <Header data={user} />
-      <div className={styles.content}>
-        <div className={styles.contentLeft}>
-          <div className={styles.activity}>
-            <Activity data={activity} />
+      {user && activity && averageSessions && performance ? (
+        <>
+          <Header data={user} />
+          <div className={styles.content}>
+            <div className={styles.contentLeft}>
+              <div className={styles.activity}>
+                <Activity data={activity} />
+              </div>
+              <div className={styles.sessionsInfo}>
+                <Sessions data={averageSessions} />
+                <Performance data={performance} />
+                <Score data={user} />
+              </div>
+            </div>
+            <div className={styles.contentRight}>
+              <KeyData data={user} />
+            </div>
           </div>
-          <div className={styles.sessionsInfo}>
-            <Sessions data={averageSessions} />
-            <Performance data={performance} />
-            <Score data={user} />
-          </div>
-        </div>
-        <div className={styles.contentRight}>
-          <KeyData data={user} />
-        </div>
-      </div>
+        </>
+      ) : (
+        <div>Chargement...</div>
+      )}
     </div>
   )
 }

@@ -1,16 +1,15 @@
-import { useRouteError } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import styles from "./styles.module.css"
 
 function ErrorPage() {
-  const error = useRouteError()
-  console.error(error)
+  const location = useLocation()
 
   return (
     <div id="error-page" className={styles.container}>
-      <h1 className={styles.status}>Error {error.status}</h1>
-      <p className={styles.text}>Sorry, an unexpected error has occurred.</p>
+      <h1 className={styles.status}>Error {location.state ? location.state.error.status : "404"}</h1>
+      <p className={styles.text}>{location.state ? location.state.error.message : "Sorry, an unexpected error has occurred."}</p>
       <p className={styles.message}>
-        <i>{error.statusText || error.message}</i>
+        <i>{location.state ? location.state.error.statusText : "Not found"}</i>
       </p>
     </div>
   )

@@ -4,18 +4,14 @@ class DataStandardizer {
     this.activity = activity
     this.averageSessions = averageSessions
     this.performance = performance
+    this.day = ["L", "M", "M", "J", "V", "S", "D"]
   }
 
   standardize() {
-    const user = this.user
+    const user = this.standardizeUser()
     const activity = this.activity
-    const averageSessions = this.averageSessions
-    const performance = this.performance
-
-    console.log("user", user)
-    console.log("activity", activity)
-    console.log("averageSessions", averageSessions)
-    console.log("performance", performance)
+    const averageSessions = this.standardizeAverageSessions()
+    const performance = this.standardizePerformance()
 
     return {
       user,
@@ -23,6 +19,51 @@ class DataStandardizer {
       averageSessions,
       performance,
     }
+  }
+
+  standardizeUser() {
+    const user = this.user
+
+    Object.keys(user).forEach((key) => {
+      if (key === "score" || key === "todayScore") {
+        user.userScore = [
+          {
+            value: user[key],
+            kind: "score",
+            fill: "red",
+          },
+        ]
+        delete user[key]
+      }
+    })
+
+    return user
+  }
+
+  standardizePerformance() {
+    const performance = this.performance
+
+    performance.data = performance.data.map((element, index) => {
+      return {
+        ...element,
+        kind: performance.kind[index + 1],
+      }
+    })
+
+    return performance
+  }
+
+  standardizeAverageSessions() {
+    const averageSessions = this.averageSessions
+
+    averageSessions.sessions = averageSessions.sessions.map((element) => {
+      return {
+        sessionLength: element.sessionLength,
+        day: this.day[element.day - 1],
+      }
+    })
+
+    return averageSessions
   }
 }
 
