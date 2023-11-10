@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fbfbfb;
+  height: 100vh;
+  row-gap: 20px;
+}
+
+.status {
+  font-size: 100px;
+  font-weight: 700;
+  color: #282d30;
+}
+
+.text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ff0101;
+}
+
+.message {
+  font-size: 20px;
+  font-weight: 500;
+  color: #282d30;
+}
