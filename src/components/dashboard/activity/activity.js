@@ -1,12 +1,9 @@
 import React from "react"
 import BarChart from "../../chart/bar/bar"
-import useApi from "../../../hooks/useApi"
-import getMockData from "../../../data/getMockData"
-import { useEffect, useState } from "react"
 import styles from "./activity.module.css"
 
-function Activity({ userId }) {
-  const { sessions } = useApi(userId, "activity") || getMockData(userId, "activity")
+function Activity({ data }) {
+  const { sessions } = data
 
   const metadata = {
     xAxis: "id",

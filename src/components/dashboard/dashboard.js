@@ -5,26 +5,31 @@ import Activity from "./activity/activity"
 import Sessions from "./sessions/sessions"
 import Performance from "./performance/performance"
 import Score from "./score/score"
+import { useParams } from "react-router"
+import useData from "../../hooks/useData"
 
 const Dashboard = () => {
-  const userId = 18
+  const { id, mock } = useParams()
+  const userId = parseInt(id)
+
+  const { user, activity, averageSessions, performance } = useData(userId, mock)
 
   return (
     <div className={styles.container}>
-      <Header userId={userId} />
+      <Header data={user} />
       <div className={styles.content}>
         <div className={styles.contentLeft}>
           <div className={styles.activity}>
-            <Activity userId={userId} />
+            <Activity data={activity} />
           </div>
           <div className={styles.sessionsInfo}>
-            <Sessions userId={userId} />
-            <Performance userId={userId} />
-            <Score userId={userId} />
+            <Sessions data={averageSessions} />
+            <Performance data={performance} />
+            <Score data={user} />
           </div>
         </div>
         <div className={styles.contentRight}>
-          <KeyData userId={userId} />
+          <KeyData data={user} />
         </div>
       </div>
     </div>

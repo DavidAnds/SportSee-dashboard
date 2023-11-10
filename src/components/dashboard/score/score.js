@@ -1,11 +1,9 @@
 import React from "react"
-import useApi from "../../../hooks/useApi"
-import getMockData from "../../../data/getMockData"
 import styles from "./score.module.css"
 import RadialBarChart from "../../chart/radialBar/radialBar"
 
-function Score({ userId }) {
-  const { todayScore, score } = useApi(userId) || getMockData(userId)
+function Score({ data }) {
+  const { todayScore, score } = data
 
   const dataFormatted =
     (todayScore && [

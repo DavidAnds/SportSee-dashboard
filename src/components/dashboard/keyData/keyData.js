@@ -5,11 +5,9 @@ import proteinIcon from "./protein-icon.png"
 import fatIcon from "./fat-icon.png"
 import carbsIcon from "./carbs-icon.png"
 import styles from "./keyData.module.css"
-import useApi from "../../../hooks/useApi"
-import getMockData from "../../../data/getMockData"
 
-function KeyData({ userId }) {
-  const { keyData } = useApi(userId) || getMockData(userId)
+function KeyData({ data }) {
+  const { keyData } = data
 
   return (
     <div className={styles.container}>

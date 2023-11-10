@@ -1,9 +1,7 @@
 import styles from "./header.module.css"
-import useApi from "../../../hooks/useApi"
-import getMockData from "../../../data/getMockData"
 
-const Header = ({ userId }) => {
-  const { userInfos, todayScore } = useApi(userId) || getMockData(userId)
+const Header = ({ data }) => {
+  const { userInfos, todayScore } = data
   return (
     <div className={styles.container}>
       {userInfos && (

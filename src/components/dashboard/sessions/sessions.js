@@ -1,11 +1,9 @@
 import React from "react"
-import useApi from "../../../hooks/useApi"
-import getMockData from "../../../data/getMockData"
 import LineChart from "../../chart/line/line"
 import styles from "./sessions.module.css"
 
-function Sessions({ userId }) {
-  const { sessions } = useApi(userId, "average-sessions") || getMockData(userId, "average-sessions")
+function Sessions({ data }) {
+  const { sessions } = data
 
   const day = ["L", "M", "M", "J", "V", "S", "D"]
   const dataFormatted =
